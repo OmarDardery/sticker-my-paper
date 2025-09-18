@@ -9,20 +9,22 @@ export default async function generateAndDownload(
   // A4 size in mm
   const A4_WIDTH = 210;
   const A4_HEIGHT = 297;
+  console.log(nwh);
+  console.log(desiredDimension);
+  console.log(size);
 
-  // Calculate scale factor for the desired dimension (width or height)
-  let scale = 1;
-  let targetWidth = nwh.width;
-  let targetHeight = nwh.height;
-  size = size * 10;
+  // Convert cm to mm
+  const sizeMM = size * 10;
+
+  let targetWidth: number;
+  let targetHeight: number;
+
   if (desiredDimension === "w") {
-    scale = size / (nwh.width / 37.7952755906); // px to mm (1mm ≈ 3.78px)
-    targetWidth = size;
-    targetHeight = (nwh.height / nwh.width) * size;
-  } else if (desiredDimension === "h") {
-    scale = size / (nwh.height / 37.7952755906);
-    targetHeight = size;
-    targetWidth = (nwh.width / nwh.height) * size;
+    targetWidth = sizeMM;
+    targetHeight = (nwh.height / nwh.width) * sizeMM;
+  } else {
+    targetHeight = sizeMM;
+    targetWidth = (nwh.width / nwh.height) * sizeMM;
   }
 
   // Read file as data URL

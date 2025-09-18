@@ -17,9 +17,9 @@ export default function Design() {
                 type="number"
                 value={size === 0 ? "" : size}
                 onChange={e => setSize(e.target.value === "" ? 0 : Number(e.target.value))}
-                /> cm <select>
-                <option value={Dimension.width} onClick={()=>{setDesiredDimension(Dimension.width)}}>wide</option>
-                <option value={Dimension.height} onClick={()=>{setDesiredDimension(Dimension.height)}}>tall</option>
+                /> cm <select onChange={e => setDesiredDimension(e.target.value as Dimension)} value={desiredDimension}>
+                <option value={Dimension.width}>wide</option>
+                <option value={Dimension.height}>tall</option>
                 </select></h1>
                 <button onClick={() => {
                     generateAndDownload(desiredDimension, size, nwh, fileContext.file!);
