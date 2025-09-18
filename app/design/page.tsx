@@ -3,14 +3,14 @@ import { useContext, useState } from "react";
 import FileContext from "../store/filecontext";
 import generateAndDownload from "./generateAndDownload";
 export default function Design() {
-    let fileContext = useContext(FileContext);
-    let [nwh, setNWH] = useState({width: 0, height: 0});
+    const fileContext = useContext(FileContext);
+    const [nwh, setNWH] = useState({width: 0, height: 0});
     enum Dimension {
         width = "w",
         height = "h"
     }
-    let [desiredDimension, setDesiredDimension] = useState(Dimension.width);
-    let [size, setSize] = useState<number>(0);
+    const [desiredDimension, setDesiredDimension] = useState(Dimension.width);
+    const [size, setSize] = useState<number>(0);
     return (
         <>
             <h1>I want my image to be <input
@@ -28,9 +28,9 @@ export default function Design() {
                 </button>
             
             <img onLoad={(e)=>{
-                let img = e.currentTarget;
-                let w = img.naturalWidth;
-                let h = img.naturalHeight;
+                const img = e.currentTarget;
+                const w = img.naturalWidth;
+                const h = img.naturalHeight;
                 setNWH({width: w, height: h});
             }} src={fileContext.file ? URL.createObjectURL(fileContext.file) : ''} alt="Uploaded Sticker" className="max-w-full h-auto hidden" />
         </>

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Upload() {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    let {setFile} = useContext(FileContext);
+    const {setFile} = useContext(FileContext);
     const router = useRouter();
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
