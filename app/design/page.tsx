@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useContext, useState } from "react";
 import FileContext from "../store/filecontext";
 import generateAndDownload from "./generateAndDownload";
@@ -16,7 +15,7 @@ export default function Design() {
                         <div key={index} className="flex flex-col gap-4  border-2 w-fit p-4 m-4 rounded-lg text-center">
                             <h2>Sticker {index + 1}</h2>
                             <div className="flex flex-col justify-center items-center  ">
-                                <Image
+                                <img
                                 onLoad={e => {
                                         const target = e.target as HTMLImageElement;
                                         setFile(prev =>
