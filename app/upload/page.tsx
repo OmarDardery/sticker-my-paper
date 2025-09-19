@@ -29,14 +29,14 @@ export default function Upload() {
             {
                 files.length > 0 && Array.from({length: files.length}).map((_, index) => (
                     <input key={index} onChange={(event)=>{
-                        let tempFile: sticker = files[index];
+                        const tempFile: sticker = files[index];
                         tempFile.file = (event.target as HTMLInputElement).files?.[0] || null;
                         setFiles(prev => prev.map((item, i) => i === index ? tempFile : item));
                     }} type="file" accept="image/*" className="p-1.5 bg-teal-300" />
                 ))
             }
             <button type="button" className="mt-10 right-0.5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={()=> {
-                let newFile: sticker = {file: new File([], ""), desiredDimension: "w", size: 0, nwh: {width: 0, height: 0}, amount: 1};
+                const newFile: sticker = {file: new File([], ""), desiredDimension: "w", size: 0, nwh: {width: 0, height: 0}, amount: 1};
                 setFiles(prev => [...prev, newFile]);
             }}>+ add sticker</button>
             <button type="submit" className="mt-10 right-0.5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
