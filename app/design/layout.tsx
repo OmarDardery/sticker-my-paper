@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Header from "./components/header";
-import ContextProvider from "./components/contectProvider";
 
 export const metadata: Metadata = {
-  title: "PaperLab - Home",
+  title: "PaperLab - Design",
   description: "Engineer your stickers.",
 };
 
@@ -20,10 +16,7 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        <Header />
-        <ContextProvider>
           {children}
-        </ContextProvider>
       </body>
     </html>
   );

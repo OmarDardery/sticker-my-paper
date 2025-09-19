@@ -1,12 +1,21 @@
 import { createContext } from "react";
 
-export type FileContextType = {
+export type sticker = {
   file: File | null;
-  setFile: (file: File | null) => void;
+  desiredDimension: string;
+  size: number;
+  nwh: { width: number; height: number };
+  amount: number;
+}
+
+
+export type FileContextType = {
+  file: sticker[] | null;
+  setFile: React.Dispatch<React.SetStateAction<sticker[] | null>>;
 };
 
 const FileContext = createContext<FileContextType>({
-  file: null,
+  file: [],
   setFile: () => {},
 });
 
